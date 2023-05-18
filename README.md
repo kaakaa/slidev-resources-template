@@ -12,7 +12,7 @@ This template repository manages slidev resource and its release.
 
 To manage your slidev's resource, clicking `Use this template` button, and create repository from this template with `Include all branches` option. 
 
-![]()
+![create-repo.png](./assets/create-repo.png)
 
 If you missed `Include all branches` option when creating, you can create orphaned `gh-pages` branch on your own. (`Iclude all branches` option is required to deploy your slidev to GitHub Pages on `gh-pages` branch. If you don't need to deploy your slidev to GitHub Pages, `Include all branches` option is not needed.)
 
