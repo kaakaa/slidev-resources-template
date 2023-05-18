@@ -40,7 +40,7 @@ jobs:
         If your slide encounters font issue, you need to add a step to install your language's font to [the release action](./.github/workflows/release.yaml).
 
         For example (to install Japanese font):
-        \`\`\`
+        \`\`\`yaml
         ...
         jobs:
           release:

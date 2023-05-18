@@ -2,6 +2,10 @@
 
 This template repository manages slidev resource and its release.
 
+This repository has actions to build and release your slidev presentation:
+* [GitHub Releases(PDF)](https://github.com/kaakaa/slidev-resources-template/releases/tag/example-slidev)
+* [GitHub Pages(SPA)](https://kaakaa.github.io/slidev-resources-template/)
+
 # Getting Started
 
 To manage your slidev's resource, clicking `Use this template` button, and create repository from this template with `Include all branches` option. 
@@ -33,6 +37,8 @@ This repository has a setup action that will create a pull request to rewrite `R
 2. Make sure "Source:**Deploy from a branch**"" and "Branch:**gh-pages-/(root)**" is set in `Settings > Pages > Build and deployment`
 3. Run setup action from `Actions > Setup repository > Run workflow > Run workflow`
 4. After completing the action, move to `Pull requests` tab and merge the pull request created by github-actions
+
+The pull request create by setup action is [here](https://github.com/kaakaa/slidev-resources-template/pull/1)
 
 # License
 
