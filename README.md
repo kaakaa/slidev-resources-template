@@ -2,12 +2,6 @@
 
 This template repository manages slidev resource and its release.
 
-## How to write and build your slidev
-
-1. Write slidev resource in sub directory (e.g.: `example-slidev/`, `your-own-slidev/`)
-2. Creating a tag with the name of sub directory (such as `example-slidev`) will start the release action that creates a release and upload slidev presentation as PDF file to the release.
-   * If you enabled GitHub Pages with `gh-pages` branch, the action will deploy slidev presentation to GitHub Pages as SPA.
-
 # Getting Started
 
 To manage your slidev's resource, clicking `Use this template` button, and create repository from this template with `Include all branches` option. 
@@ -25,7 +19,13 @@ $ git commit --allow-empty -m "Initial commit"
 $ git push origin gh-pages
 ```
 
-# Setup repository (Optional)
+## How to write and build your slidev
+
+1. Write slidev resource in sub directory (e.g.: `example-slidev/`, `your-own-slidev/`)
+2. Creating a tag with the name of sub directory (such as `example-slidev`) will start the release action that creates a release and upload slidev presentation as PDF file to the release.
+   * If you enabled GitHub Pages with `gh-pages` branch, the action will deploy slidev presentation to GitHub Pages as SPA.
+
+## Setup repository (Optional)
 
 This repository has a setup action that will create a pull request to rewrite `README.md` and remove unnecessary files. 
 
