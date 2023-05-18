@@ -19,8 +19,8 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
     - run: |
         rm .github/workflows/setup.yaml
-        sed -i 's#--base /slidev-resources#--base ${{ steps.configure-pages.outputs.base_path }}#g' package.json
-        
+        sed -i 's#--base /slidev-resources-template#--base ${{ steps.configure-pages.outputs.base_path }}#g' package.json
+
         cat <<EOF > README.md
         # slidev-resources
 
