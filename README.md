@@ -1,39 +1,34 @@
-# Slidev Resources Template
+# slidev-resources
 
-This template repository manages slidev resource and its release.
+This repository manage my [slidev](https://sli.dev/) resources.
 
-# Getting Started
+* [GitHub Pages(SPA)](https://kaakaa.github.io/slidev-resources-template)
+* [GitHub Releases(PDF)](https://github.com/kaakaa/slidev-resources-template/releases)
 
-To manage your slidev's resource, clicking `Use this template` button, and create repository from this template with `Include all branches` option. 
+## Write and deploy a slide
+1. Create a directory (e.g.: `my-slide`)
+2. Create `slides.md` in the directory and write slidev to the file (e.g.:`my-slide/slides.md`)
+   * The file name must be `slides.md` because it's hardcoded in [`package.json`](./package.json)
+3. (Optional) Create a sub directory for slidev's assets if you want use it in the slide (e.g.:`my-slide/public`, `my-slide/components`)
+4. Commit it and create a tag with the name of the directory (e.g.: `my-slide`)
 
-![create-repo.png](./assets/create-repo.png)
+## When encounting font issue
+If your slide encounters font issue, you need to add a step to install your language's font to [the release action](./.github/workflows/release.yaml).
 
-If you missed `Include all branches` option when creating, you can create orphaned `gh-pages` branch on your own. (`Iclude all branches` option is required to deploy your slidev to GitHub Pages on `gh-pages` branch. If you don't need to deploy your slidev to GitHub Pages, `Include all branches` option is not needed.)
-
-```sh
-$ git clone <YOUR_REPOSITORY>
-$ cd <YOUR_REPOSITORY_NAME>
-$ git checkout --orphan gh-pages
-$ git rm -rf .
-$ git commit --allow-empty -m "Initial commit"
-$ git push origin gh-pages
+For example (to install Japanese font):
 ```
-
-## How to write and build your slidev
-
-1. Write slidev resource in sub directory (e.g.: `example-slidev/`, `your-own-slidev/`)
-2. Creating a tag with the name of sub directory (such as `example-slidev`) will start the release action that creates a release and upload slidev presentation as PDF file to the release.
-   * If you enabled GitHub Pages with `gh-pages` branch, the action will deploy slidev presentation to GitHub Pages as SPA.
-
-## Setup repository (Optional)
-
-This repository has a setup action that will create a pull request to rewrite `README.md` and remove unnecessary files. 
-
-1. Check `Settings > Actions > General > Allow GitHub Actions to create and approve pull requests` and click `Save`
-2. Make sure "Source:**Deploy from a branch**"" and "Branch:**gh-pages-/(root)**" is set in `Settings > Pages > Build and deployment`
-3. Run setup action from `Actions > Setup repository > Run workflow > Run workflow`
-4. After completing the action, move to `Pull requests` tab and merge the pull request created by github-actions
-
+...
+jobs:
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Japanese font            # Insert these 2 lines
+        run: sudo apt install -y fonts-noto    #     to install Japanese font
+      - uses: actions/checkout@v3
+      ...
+```
 # License
 
 This repository is licensed under the MIT License. See [LICENSE](LICENSE) for the full license text.
