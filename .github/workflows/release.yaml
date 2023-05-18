@@ -1,0 +1,44 @@
+name: Release slidev
+on:
+  push:
+    branches-ignore:
+      - "*"
+    tags:
+      - "*"
+
+jobs:
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
+      - run: npm ci
+      - name: Export slidev as PDF
+        run: npm run export --slide=${GITHUB_REF##*/} && npm run export:dark --slide=${GITHUB_REF##*/}
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/*.pdf
+      - name: Build slidev as SPA
+        run: npm run build --slide=${GITHUB_REF##*/}
+      - name: Deploy pages
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          keep_history: true
+          build_dir: docs
+          verbose: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  update:
+    needs: release
+    permissions:
+      contents: write
+    uses: ./.github/workflows/update-index-page.yaml
+    secrets: inherit

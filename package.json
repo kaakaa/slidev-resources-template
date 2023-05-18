@@ -1,0 +1,18 @@
+{
+  "name": "slidev-resources",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --out ../docs/${npm_config_slide} --base /slidev-resources/${npm_config_slide} ${npm_config_slide}/slides.md",
+    "dev": "slidev --open --remote 0.0.0.0",
+    "export": "slidev export --output dist/${npm_config_slide}.pdf --format pdf ${npm_config_slide}/slides.md",
+    "export:dark": "slidev export --dark --output dist/${npm_config_slide}-dark.pdf --format pdf ${npm_config_slide}/slides.md"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.40.16",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.33.0"
+  }
+}

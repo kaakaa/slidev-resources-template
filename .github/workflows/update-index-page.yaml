@@ -1,0 +1,29 @@
+name: Update index page
+on:
+  workflow_call:
+
+jobs:
+  update:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: "gh-pages"
+    - name: Create index page
+      run: |
+        echo "" > index.md
+        dirs=$(find . -mindepth 2 -maxdepth 2 -name "index.html" -exec realpath --relative-to . {} \; | xargs dirname)
+        for dir in $dirs; do
+          echo "- [${dir}](./${dir})" >> index.md
+        done
+    - name: Deploy pages
+      uses: crazy-max/ghaction-github-pages@v2
+      with:
+        keep_history: true
+        build_dir: .
+        verbose: true
+        commit_message: "Update index page"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
