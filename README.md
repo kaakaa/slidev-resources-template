@@ -1,9 +1,9 @@
 [![Release slidev](https://github.com/kaakaa/slidev-resources-template/actions/workflows/release.yaml/badge.svg)](https://github.com/kaakaa/slidev-resources-template/actions/workflows/release.yaml)
 # Slidev Resources Template
 
-This is a template repository to manage [slidev](https://sli.dev) resource and its release.
+This is a template repository to manage multiple [slidev](https://sli.dev) resources.
 
-This repository has actions to build and deploy your slidev presentation on GitHub:
+This repository has an action to build and deploy your slidev presentation on GitHub:
 * [GitHub Releases(PDF)](https://github.com/kaakaa/slidev-resources-template/releases/tag/example-slidev)
 * [GitHub Pages(SPA)](https://kaakaa.github.io/slidev-resources-template/)
 
@@ -41,7 +41,7 @@ This repository has a setup action that will create a pull request to rewrite `R
 3. Run setup action from `Actions > Setup repository > Run workflow > Run workflow`
 4. After completing the action, move to `Pull requests` tab and merge the pull request created by github-actions
 
-The pull request create by setup action is [here](https://github.com/kaakaa/slidev-resources-template/pull/1)
+The pull request create by setup action is [here](https://github.com/kaakaa/slidev-resources-template/pull/2)
 
 # License
 
