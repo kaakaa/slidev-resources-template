@@ -22,6 +22,7 @@ jobs:
         sed -i 's#--base /slidev-resources-template#--base ${{ steps.configure-pages.outputs.base_path }}#g' package.json
 
         cat <<EOF > README.md
+        [![Release slidev](https://github.com/${{ github.repository }}/actions/workflows/release.yaml/badge.svg)](https://github.com/${{ github.repository }}/actions/workflows/release.yaml)
         # slidev-resources
 
         This repository manage my [slidev](https://sli.dev/) resources.

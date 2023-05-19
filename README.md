@@ -1,3 +1,4 @@
+[![Release slidev](https://github.com/kaakaa/slidev-resources-template/actions/workflows/release.yaml/badge.svg)](https://github.com/kaakaa/slidev-resources-template/actions/workflows/release.yaml)
 # Slidev Resources Template
 
 This is a template repository to manage [slidev](https://sli.dev) resource and its release.
