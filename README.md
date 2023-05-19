@@ -41,7 +41,7 @@ This repository has a setup action that will create a pull request to rewrite `R
 3. Run setup action from `Actions > Setup repository > Run workflow > Run workflow`
 4. After completing the action, move to `Pull requests` tab and merge the pull request created by github-actions
 
-The pull request create by setup action is [here](https://github.com/kaakaa/slidev-resources-template/pull/2)
+The pull request create by setup action is [here](https://github.com/kaakaa/slidev-resources-template/pull/3)
 
 # License
 
