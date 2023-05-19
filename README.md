@@ -1,10 +1,12 @@
 # Slidev Resources Template
 
-This template repository manages slidev resource and its release.
+This is a template repository to manage [slidev](https://sli.dev) resource and its release.
 
-This repository has actions to build and release your slidev presentation:
+This repository has actions to build and deploy your slidev presentation on GitHub:
 * [GitHub Releases(PDF)](https://github.com/kaakaa/slidev-resources-template/releases/tag/example-slidev)
 * [GitHub Pages(SPA)](https://kaakaa.github.io/slidev-resources-template/)
+
+![sturcture](./assets/structure.png)
 
 # Getting Started
 
