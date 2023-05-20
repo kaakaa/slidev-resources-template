@@ -6,6 +6,8 @@ on:
     tags:
       - "*"
 
+concurrency: release-slidev
+
 jobs:
   release:
     permissions:
