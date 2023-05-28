@@ -1,0 +1,24 @@
+name: "kaakaa/slidev-resources-template/checkOGP"
+description: |
+  Check if OGP is enabled
+
+inputs:
+  file:
+    description: slidev entry file
+    required: true
+outputs:
+  ogp:
+    description: "if OGP is enabled, this value is true. otherwise, this value is false."
+    value: ${{ steps.frontmatter.outputs.ogp }}
+runs:
+  using: "composite"
+  steps:
+    - name: setup yq
+      shell: bash
+      run: |
+        wget https://github.com/mikefarah/yq/releases/download/v4.34.1/yq_linux_amd64 -O ./yq
+        chmod +x ./yq
+    - name: Frontmatter
+      id: frontmatter
+      shell: bash
+      run: echo "ogp=`./yq --front-matter=extract '.githubPages.ogp' ${{ inputs.file }} | tr -d '\n'`" >> $GITHUB_OUTPUT
