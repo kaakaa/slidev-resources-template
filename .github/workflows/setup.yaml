@@ -38,6 +38,15 @@ jobs:
         3. (Optional) Create a sub directory for slidev's assets if you want use it in the slide (e.g.:\`my-slide/public\`, \`my-slide/components\`)
         4. Commit it and create a tag with the name of the directory (e.g.: \`my-slide\`)
 
+        ### Enable OGP on GitHub Pages (Experimental)
+
+        Adding `githubPages.ogp=true` to frontmatter enables OGP on GitHub Pages.
+
+        \`\`\`yaml
+        githubPages:
+          ogp: true
+        \`\`\`
+
         ## When encounting font issue
         If your slide encounters font issue, you need to add a step to install your language's font to [the release action](./.github/workflows/release.yaml).
 

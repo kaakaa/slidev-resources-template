@@ -12,8 +12,14 @@ jobs:
   release:
     permissions:
       contents: write
+      pages: read
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Pages
+        id: configure-pages
+        uses: actions/configure-pages@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v3
         with:
           submodules: true
@@ -28,8 +34,21 @@ jobs:
         with:
           files: |
             dist/*.pdf
+      - name: Check if OGP is enabled
+        id: checkOGP
+        uses: ./.github/actions/checkOGP
+        with:
+          file: ${GITHUB_REF##*/}/slides.md
+      - name: Generate index.html before building SPA
+        if: ${{ steps.checkOGP.outputs.ogp == 'true' }}
+        run: |
+          npm run build:before --slide=${GITHUB_REF##*/} --pagesurl=${{ steps.configure-pages.outputs.base_url }}
       - name: Build slidev as SPA
         run: npm run build --slide=${GITHUB_REF##*/}
+      - name: Generate preview image for OGP
+        if: ${{ steps.checkOGP.outputs.ogp == 'true' }}
+        run: |
+          npm run build:after --slide=${GITHUB_REF##*/}
       - name: Deploy pages
         uses: crazy-max/ghaction-github-pages@v3
         with:

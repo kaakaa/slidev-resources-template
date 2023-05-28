@@ -23,6 +23,9 @@ drawings:
 transition: slide-left
 # use UnoCSS
 css: unocss
+githubPages:
+  ogp: true
+
 ---
 
 # Welcome to Slidev
