@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/javascript-node:0-18-bullseye
+FROM mcr.microsoft.com/vscode/devcontainers/universal:2-linux
 
 USER root
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \

@@ -1,6 +1,6 @@
 {
     "name": "Slidev Dev",
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18-bullseye",
+    "image": "mcr.microsoft.com/vscode/devcontainers/universal:2-linux",
     "customizations": {
         "vscode": {
             "settings": {},
