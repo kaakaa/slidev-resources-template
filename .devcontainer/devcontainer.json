@@ -5,7 +5,9 @@
         "vscode": {
             "settings": {},
             "extensions": [
-                "antfu.slidev"
+                // Doesn't install slide vs code extention, because slidev extension doesn't support remote server setting yet.
+                // ref: https://github.com/slidevjs/slidev-vscode/issues/13
+                // "antfu.slidev"
             ]
         }
     },
