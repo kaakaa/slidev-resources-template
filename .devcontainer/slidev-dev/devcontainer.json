@@ -1,0 +1,14 @@
+{
+    "name": "Slidev Dev (ja)",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18-bullseye",
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "antfu.slidev"
+            ]
+        }
+    },
+    "remoteUser": "codespace",
+    "postCreateCommand": "npm i"
+}

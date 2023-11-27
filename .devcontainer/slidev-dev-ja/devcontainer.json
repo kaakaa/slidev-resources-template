@@ -1,0 +1,14 @@
+{
+    "name": "Slidev Dev (ja)",
+    "build": {"dockerfile": "Dockerfile"},
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "antfu.slidev"
+            ]
+        }
+    },
+    "remoteUser": "codespace",
+    "postCreateCommand": "npm i"
+}
