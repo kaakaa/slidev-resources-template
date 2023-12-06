@@ -32,9 +32,10 @@ jobs:
         * [GitHub Releases(PDF)](https://github.com/${{ github.repository }}/releases)
 
         ## Write and deploy a slide
-        1. Create a directory (e.g.: \`my-slide\`)
-        2. Create \`slides.md\` in the directory and write slidev to the file (e.g.:\`my-slide/slides.md\`)
-           * The file name must be \`slides.md\` because it's hardcoded in [\`package.json\`](./package.json)
+        1. Run `npm run new` and specify a name of directory (e.g.:\`my-slide/slides.md\`) to create new sub-project (including the following steps)
+           * Create a directory (e.g.: \`my-slide\`)
+           * Create \`slides.md\` in the directory and write slidev to the file (e.g.:\`my-slide/slides.md\`)
+             * The file name must be \`slides.md\` because it's hardcoded in [\`package.json\`](./package.json)
         3. (Optional) Create a sub directory for slidev's assets if you want use it in the slide (e.g.:\`my-slide/public\`, \`my-slide/components\`)
         4. Commit it and create a tag with the name of the directory (e.g.: \`my-slide\`)
 
