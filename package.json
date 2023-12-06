@@ -2,6 +2,7 @@
   "name": "slidev-resources-template",
   "private": true,
   "scripts": {
+    "new": "scaffdog generate new_slide",
     "build:before": "node scripts/setup-spa.js ${npm_config_slide} ${npm_config_pagesurl}",
     "build:after": "node scripts/create-preview-image.js dist/${npm_config_slide}.pdf docs/${npm_config_slide}/preview.png ",
     "build": "slidev build --out ../docs/${npm_config_slide} --base /slidev-resources-template/${npm_config_slide} ${npm_config_slide}/slides.md",
@@ -17,6 +18,7 @@
     "pdf-img-convert": "^1.2.1"
   },
   "devDependencies": {
-    "playwright-chromium": "^1.33.0"
+    "playwright-chromium": "^1.33.0",
+    "scaffdog": "^3.0.0"
   }
 }
