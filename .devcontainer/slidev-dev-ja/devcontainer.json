@@ -1,0 +1,16 @@
+{
+    "name": "Slidev Dev (ja)",
+    "build": {"dockerfile": "Dockerfile"},
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                // Doesn't install slide vs code extention, because slidev extension doesn't support remote server setting yet.
+                // ref: https://github.com/slidevjs/slidev-vscode/issues/13
+                // "antfu.slidev"
+            ]
+        }
+    },
+    "remoteUser": "codespace",
+    "postCreateCommand": "npm i"
+}

@@ -10,7 +10,7 @@
     "export:dark": "slidev export --dark --output dist/${npm_config_slide}-dark.pdf --format pdf ${npm_config_slide}/slides.md"
   },
   "dependencies": {
-    "@slidev/cli": "^0.40.16",
+    "@slidev/cli": ">=0.45.0",
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*",
     "gray-matter": "^4.0.3",
