@@ -32,12 +32,22 @@ jobs:
         * [GitHub Releases(PDF)](https://github.com/${{ github.repository }}/releases)
 
         ## Write and deploy a slide
-        1. Run `npm run new` and specify a name of directory (e.g.:\`my-slide/slides.md\`) to create new sub-project (including the following steps)
-           * Create a directory (e.g.: \`my-slide\`)
-           * Create \`slides.md\` in the directory and write slidev to the file (e.g.:\`my-slide/slides.md\`)
-             * The file name must be \`slides.md\` because it's hardcoded in [\`package.json\`](./package.json)
-        2. (Optional) Create a sub directory for slidev's assets if you want use it in the slide (e.g.:\`my-slide/public\`, \`my-slide/components\`)
-        3. Commit it and create a tag with the name of the directory (e.g.: \`my-slide\`)
+        1. Run \`npm install\`
+        2. Run \`npm run new\` and specify a name of directory (e.g.:\`my-slide\`) to create new sub-project
+           * \`npm run new\` command will create \`my-slide/slides.md\` and \`my-slide/public/\`
+           * \`my-slide/slides.md\` is an entry point for slidev. (Filename `slides.md` must not be changed because its name is hardcoded in some scripts in \`package.json\`)
+           * Static files in \`my-slide/public\` can be refered from slide
+             * e.g.: \`my-slide/public/image.png\` can be refered as \`/image.png\` from \`my-slide/slides.md\`
+        3. Commit subdirectory (e.g.: \`my-slide/\`) and create a tag with the name of the directory (e.g.: \`my-slide\`)
+        
+        ### Set up environment to write a slide
+        This repository has devcontainer setting, so you can create Codespace from [Your Codespaces](https://github.com/${{ github.repository }}/codespaces) and write slidev on it.
+        There are two kinds of devcontainer.
+        
+        | Configuration   | Description |
+        |:----------------|:------------|
+        | [Slidev Dev](./.devcontainer/devcontainer.json)  | Use \`mcr.microsoft.com/vscode/devcontainers/universal:2-linux\` |
+        | [Slidev Dev (ja)](./.devcontainer/slidev-dev-ja) | \`Slidev Dev\` + cjk font (fonts-noto-cjk) |
 
         ### Enable OGP on GitHub Pages (Experimental)
 
