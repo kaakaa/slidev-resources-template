@@ -36,8 +36,8 @@ jobs:
            * Create a directory (e.g.: \`my-slide\`)
            * Create \`slides.md\` in the directory and write slidev to the file (e.g.:\`my-slide/slides.md\`)
              * The file name must be \`slides.md\` because it's hardcoded in [\`package.json\`](./package.json)
-        3. (Optional) Create a sub directory for slidev's assets if you want use it in the slide (e.g.:\`my-slide/public\`, \`my-slide/components\`)
-        4. Commit it and create a tag with the name of the directory (e.g.: \`my-slide\`)
+        2. (Optional) Create a sub directory for slidev's assets if you want use it in the slide (e.g.:\`my-slide/public\`, \`my-slide/components\`)
+        3. Commit it and create a tag with the name of the directory (e.g.: \`my-slide\`)
 
         ### Enable OGP on GitHub Pages (Experimental)
 
