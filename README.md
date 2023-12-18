@@ -1,50 +1,67 @@
 [![Release slidev](https://github.com/kaakaa/slidev-resources-template/actions/workflows/release.yaml/badge.svg)](https://github.com/kaakaa/slidev-resources-template/actions/workflows/release.yaml)
-# Slidev Resources Template
+# slidev-resources
 
-This is a template repository to manage multiple [slidev](https://sli.dev) resources.
+This repository manage my [slidev](https://sli.dev/) resources.
 
-This repository has an action to build and deploy your slidev presentation on GitHub:
-* [GitHub Releases(PDF)](https://github.com/kaakaa/slidev-resources-template/releases/tag/example-slidev)
-* [GitHub Pages(SPA)](https://kaakaa.github.io/slidev-resources-template/)
+* [GitHub Pages(SPA)](https://kaakaa.github.io/slidev-resources-template)
+* [GitHub Releases(PDF)](https://github.com/kaakaa/slidev-resources-template/releases)
 
-![sturcture](./assets/structure.png)
+## Write and deploy a slide
+1. Run `npm install`
+2. Run `npm run new` and specify a name of directory (e.g.:`my-slide`) to create new sub-project
+   * `npm run new` command will create `my-slide/slides.md` and `my-slide/public/`
+   * `my-slide/slides.md` is an entry point for slidev. (Filename  must not be changed because its name is hardcoded in some scripts in `package.json`)
+   * Static files in `my-slide/public` can be refered from slide
+     * e.g.: `my-slide/public/image.png` can be refered as `/image.png` from `my-slide/slides.md`
+3. Commit subdirectory (e.g.: `my-slide/`) and create a tag with the name of the directory (e.g.: `my-slide`)
 
-# Getting Started
+### Set up environment to write a slide
+This repository has devcontainer setting, so you can create Codespace from [Your Codespaces](https://github.com/kaakaa/slidev-resources-template/codespaces) and write slidev on it.
+There are two kinds of devcontainer.
 
-To manage your slidev's resource, clicking `Use this template` button, and create repository from this template with `Include all branches` option. 
+| Configuration   | Description |
+|:----------------|:------------|
+| [Slidev Dev](./.devcontainer/devcontainer.json)  | Use `mcr.microsoft.com/vscode/devcontainers/universal:2-linux` |
+| [Slidev Dev (ja)](./.devcontainer/slidev-dev-ja) | `Slidev Dev` + cjk font (fonts-noto-cjk) |
 
-![create-repo.png](./assets/create-repo.png)
+### Enable OGP on GitHub Pages (Experimental)
 
-If you missed `Include all branches` option when creating, you can create orphaned `gh-pages` branch on your own. (`Iclude all branches` option is required to deploy your slidev to GitHub Pages on `gh-pages` branch. If you don't need to deploy your slidev to GitHub Pages, `Include all branches` option is not needed.)
+Adding `githubPages.ogp=true` to frontmatter enables OGP on GitHub Pages.
 
-```sh
-$ git clone <YOUR_REPOSITORY>
-$ cd <YOUR_REPOSITORY_NAME>
-$ git checkout --orphan gh-pages
-$ git rm -rf .
-$ git commit --allow-empty -m "Initial commit"
-$ git push origin gh-pages
+```yaml
+githubPages:
+  ogp: true
 ```
 
-## How to write and build your slidev
+Parameters of OGP are from a front-matter in slidev entry file.
 
-1. Write slidev resource in sub directory (e.g.: `example-slidev/`, `your-own-slidev/`)
-2. Creating a tag with the name of sub directory (such as `example-slidev`) will start the release action that creates a release and upload slidev presentation as PDF file to the release.
-   * If you enabled GitHub Pages with `gh-pages` branch, the action will deploy slidev presentation to GitHub Pages as SPA.
+| ogp property   | front-matter | default value |
+|:---------------|:-------------|:--------------|
+| og:title       | title        | `Slidev Presentation` |
+| og:type        | -            | `website`     |
+| og:url         | -            | `{url_ghpages}`      |
+| og:image       | -            | `{url_ghpages}/preview.png` |
+| og:description | info         | `(empty)`     |
 
-## Setup repository (Optional)
+Preview image of `og:image` is generate from the first page of PDF file.
 
-This repository has a setup action that will create a pull request to rewrite `README.md` and remove unnecessary files. 
+## When encounting font issue
+If your slide encounters font issue, you need to add a step to install your language's font to [the release action](./.github/workflows/release.yaml).
 
-1. Check `Settings > Actions > General > Allow GitHub Actions to create and approve pull requests` and click `Save`
-2. Make sure "Source:**Deploy from a branch**"" and "Branch:**gh-pages-/(root)**" is set in `Settings > Pages > Build and deployment`
-3. Run setup action from `Actions > Setup repository > Run workflow > Run workflow`
-4. After completing the action, move to `Pull requests` tab and merge the pull request created by github-actions
-
-![run-setup-workflow](./assets/run-setup-workflow.png)
-
-The pull request create by setup action is [here](https://github.com/kaakaa/slidev-resources-template/pull/3)
-
+For example (to install Japanese font):
+```yaml
+...
+jobs:
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Japanese font            # Insert these 2 lines
+        run: sudo apt install -y fonts-noto    #     to install Japanese font
+      - uses: actions/checkout@v3
+      ...
+```
 # License
 
 This repository is licensed under the MIT License. See [LICENSE](LICENSE) for the full license text.
