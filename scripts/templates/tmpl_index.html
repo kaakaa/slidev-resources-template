@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slides Index</title>
+    <style>
+        html {
+            --s: 100px; /* control the size */
+            --_g: #0000 90deg,#9c93 0;
+            background: 
+                conic-gradient(from 90deg at 2px 2px,var(--_g)),
+                conic-gradient(from 90deg at 1px 1px,var(--_g));
+                background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
+        }
+        .slide {
+            margin: 1em;
+            padding: 1em;
+            background-color: #ccc5;
+            border: solid 1px #999;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .slide:hover {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .slide:active {
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+            transform: translateY(2px);
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
+        }
+        @media (min-width: 600px) {
+            .slides {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: start;
+            }
+            .slide {
+                flex: 0 0 calc(29% - 2em);
+            }
+        }
+        @media (min-width: 900px) {
+            .slide {
+                flex: 0 0 calc(29% - 2em);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slides">
+{{ entries }}
+    </div>
+</body>
+</html>

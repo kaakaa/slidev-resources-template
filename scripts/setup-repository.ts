@@ -14,7 +14,7 @@ const values: { [key: string]: string } = {
 const filesToRemove = [
     '.github/workflows/setup.yaml',
     'scripts/setup-repository.ts',
-    'scripts/templates/',
+    'scripts/templates/tmpl_readme.md',
     'assets/'
 ];
 
