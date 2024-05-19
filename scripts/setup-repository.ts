@@ -20,7 +20,7 @@ const filesToRemove = [
 
 /* replace pages.basePath in package.json*/
 let pkgjsonFile = fs.readFileSync('package.json', 'utf8');
-pkgjsonFile = pkgjsonFile.replace( /--base \/slidev-resources-template/g, `--baes ${basePath}`);
+pkgjsonFile = pkgjsonFile.replace( /--base \/slidev-resources-template/g, `--base ${basePath}`);
 fs.writeFileSync('package.json', pkgjsonFile, 'utf-8');
 
 
