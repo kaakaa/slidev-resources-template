@@ -9,6 +9,7 @@
     "dev": "slidev --open --remote 0.0.0.0",
     "export": "slidev export --output dist/${npm_config_slide}.pdf --format pdf ${npm_config_slide}/slides.md",
     "export:dark": "slidev export --dark --output dist/${npm_config_slide}-dark.pdf --format pdf ${npm_config_slide}/slides.md",
+    "update-index-page": "ts-node scripts/update-index-pages.ts ${npm_config_pagesdir}",
     "setup-repository": "ts-node scripts/setup-repository.ts ${npm_config_repository} ${npm_config_pages_basepath} ${npm_config_pages_baseurl}"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "pdf-img-convert": "^1.2.1"
   },
   "devDependencies": {
+    "glob": "^10.3.15",
     "playwright-chromium": "^1.33.0",
     "scaffdog": "^3.0.0",
     "ts-node": "^10.9.2",
