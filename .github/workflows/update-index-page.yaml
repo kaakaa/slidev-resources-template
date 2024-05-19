@@ -8,21 +8,21 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
       with:
         ref: gh-pages
         path: gh-pages
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
       with:
-        node-version: 16
+        node-version: 18
         cache: "npm"
     - name: Create index page
       run: |
         npm ci
         npm run update-index-page --pagesdir=gh-pages/
     - name: Deploy pages
-      uses: crazy-max/ghaction-github-pages@v3
+      uses: crazy-max/ghaction-github-pages@v4
       with:
         keep_history: true
         build_dir: ./gh-pages
