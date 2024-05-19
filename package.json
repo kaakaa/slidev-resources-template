@@ -5,7 +5,7 @@
     "new": "scaffdog generate new_slide",
     "build:before": "node scripts/setup-spa.js ${npm_config_slide} ${npm_config_pagesurl}",
     "build:after": "node scripts/create-preview-image.js dist/${npm_config_slide}.pdf docs/${npm_config_slide}/preview.png ",
-    "build": "slidev build --out ../docs/${npm_config_slide} --base /slidev-resources-template/${npm_config_slide} ${npm_config_slide}/slides.md",
+    "build": "slidev build --out ../docs/${npm_config_slide} --baes /slidev-resources-template/${npm_config_slide} ${npm_config_slide}/slides.md",
     "dev": "slidev --open --remote 0.0.0.0",
     "export": "slidev export --output dist/${npm_config_slide}.pdf --format pdf ${npm_config_slide}/slides.md",
     "export:dark": "slidev export --dark --output dist/${npm_config_slide}-dark.pdf --format pdf ${npm_config_slide}/slides.md",
