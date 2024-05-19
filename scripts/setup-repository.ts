@@ -1,9 +1,10 @@
 import fs from 'fs';
 
-// ts-node scripts/setup-repository.ts [github.repository] [pages.base_url]
+// ts-node scripts/setup-repository.ts [github.repository] [pages.base_path] [pages.base_url]
 const args = process.argv.slice(2);
 const repository = args[0] || 'kaakaa/slidev-resources-template';
-const baseUrl = args[1] || '/slidev-resources-template';
+const basePath = args[1] || '/slidev-resources-template';
+const baseUrl = args[2] || 'https://kaakaa.github.cio/slidev-resources-template';
 
 const values: { [key: string]: string } = {
     'github.repository': repository,
@@ -17,9 +18,9 @@ const filesToRemove = [
     'assets/'
 ];
 
-/* replace pages.baseUrl in package.json*/
+/* replace pages.basePath in package.json*/
 let pkgjsonFile = fs.readFileSync('package.json', 'utf8');
-pkgjsonFile = pkgjsonFile.replace( /--base \/slidev-resources-template/g, `--baes ${baseUrl}`);
+pkgjsonFile = pkgjsonFile.replace( /--base \/slidev-resources-template/g, `--baes ${basePath}`);
 fs.writeFileSync('package.json', pkgjsonFile, 'utf-8');
 
 
