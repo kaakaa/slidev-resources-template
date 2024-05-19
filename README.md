@@ -44,7 +44,7 @@ This repository has a setup action that will create a pull request to rewrite `R
 ![run-setup-workflow](./assets/run-setup-workflow.png)
 
 > [!TIP]
-> The pull request create by setup action is [here](https://github.com/kaakaa/slidev-resources-template/pull/12)
+> The pull request create by setup action is [here](https://github.com/kaakaa/slidev-resources-template/pull/15)
 
 # License
 
