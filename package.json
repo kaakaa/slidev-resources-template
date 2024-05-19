@@ -9,7 +9,7 @@
     "dev": "slidev --open --remote 0.0.0.0",
     "export": "slidev export --output dist/${npm_config_slide}.pdf --format pdf ${npm_config_slide}/slides.md",
     "export:dark": "slidev export --dark --output dist/${npm_config_slide}-dark.pdf --format pdf ${npm_config_slide}/slides.md",
-    "setup-repository": "ts-node scripts/setup-repository.ts ${npm_config_repository} ${npm_config_pages_baseurl}"
+    "setup-repository": "ts-node scripts/setup-repository.ts ${npm_config_repository} ${npm_config_pages_basepath} ${npm_config_pages_baseurl}"
   },
   "dependencies": {
     "@slidev/cli": "^0.49.0",
